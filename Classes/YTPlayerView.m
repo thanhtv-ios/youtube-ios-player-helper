@@ -934,6 +934,9 @@ createWebViewWithConfiguration:(WKWebViewConfiguration *)configuration
 }
 
 + (NSBundle *)frameworkBundle {
+#ifdef SWIFTPM_MODULE_BUNDLE
+    return SWIFTPM_MODULE_BUNDLE;
+#endif
     static NSBundle* frameworkBundle = nil;
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
